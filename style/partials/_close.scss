@@ -1,0 +1,12 @@
+// # Close button
+// Overrides of default close button styles
+
+// Base
+.close {
+    @include transition(color ease-in-out $component-transition-timer, opacity ease-in-out $component-transition-timer);
+
+    // Hover and focus states
+    @include hover-focus {
+        outline: 0;
+    }
+}

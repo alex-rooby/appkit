@@ -1,0 +1,127 @@
+// Card base
+.card {
+    margin-bottom: $spacer;
+    border: none;
+
+    // Full screen mode
+    &.fixed-top {
+        overflow: auto;
+        max-height: 100%;
+    }
+}
+
+// Card body
+.card-body:not(.card) {
+    + .card-body:not(.card) {
+        border-top: $card-border-width solid $card-border-color;
+    }
+}
+
+// Card title
+.card-title {
+    position: relative;
+}
+
+// Card header
+.card-header {
+
+    // Title
+    .card-title {
+        margin-bottom: 0;
+    }
+
+    // Inside dark card
+    .card[class*=bg-]:not(.bg-light):not(.bg-white):not(.bg-transparent) & {
+        border-bottom-color: rgba($white, 0.1);
+    }
+
+    // If header has no bottom border,
+    // make vertical spacing bigger
+    &:not([class*=bg-]):not([class*=alpha-]) {
+        background-color: transparent;
+        padding-top: $card-spacer-x;
+        padding-bottom: $card-spacer-x;
+        border-bottom-width: 0;
+
+        // Remove top padding from card body
+        + .card-body,
+        + * > .card-body:first-child {
+            padding-top: 0;
+        }
+    }
+}
+
+// Card footer
+.card-footer {
+
+    // Add top borders if comes last
+    &:first-child,
+    .card-header + &,
+    .card-header + * > &:first-child {
+        border-top: 0;
+        border-bottom: $card-border-width solid $card-border-color;
+    }
+
+    // Add border if not last
+    &.border-bottom-1 {
+        border-bottom: $card-border-width solid $card-border-color;
+    }
+}
+
+
+//
+// Header navs
+//
+
+.card-header-tabs {
+    margin-bottom: 0;
+
+    // Link
+    .nav-link {
+        border-top-width: 0;
+    }
+}
+
+
+//
+// Image controls
+//
+
+// Card image
+.card-img {
+
+    // Inside card body
+    .card-body & {
+        @include border-radius($card-border-radius);
+    }
+}
+
+// Img actions
+.card-img-actions {
+    position: relative;
+
+    // Hover state
+    @include hover-focus {
+        .card-img-actions-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+// Img actions overlay
+.card-img-actions-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($black, 0.75);
+    color: $white;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(all ease-in-out $component-transition-timer);
+}

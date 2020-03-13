@@ -1,0 +1,147 @@
+#sidebar {
+	width: $sidebar-width;
+    min-width: $sidebar-width;
+    max-width: $sidebar-width;
+	position: fixed;
+	height: 100%;
+	top: 0;
+	left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    .nav-item-header {
+        font-size: 0.7rem;
+        padding: 10px 15px;
+        text-transform: uppercase;
+    }
+
+    .nav-link {    
+        padding: .75rem 1.25rem;
+        transition: transform .3s ease-out;
+    }
+
+    .nav-link.active {
+        font-weight: $font-weight-semibold
+    }
+
+    .nav-item i {
+        font-size: 1rem;
+        padding: 0 10px 0 0;
+        vertical-align: middle;
+    }
+}
+
+#sidebar.show {
+    border-right: 0 !important;    
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+
+
+// Navbar brand 
+#sidebar .sidebar-brand {
+    padding: 10px;
+    background: inherit;
+
+    .logo {
+        max-height: 30px;
+        margin-top: 4px;
+    }
+}
+
+
+// Sidebar light - dark links against a light background
+.sidebar-light {
+    
+    .nav-item-header {
+        color: rgba(51,51,51,.5);
+    }
+
+    .nav-link {
+        color: $gray-700;
+    }
+
+    // States
+    .nav-link {
+        &:hover,
+        &:focus,
+        &.focus,
+        &.active  {
+            color: $gray-800;
+            background-color: rgba(225, 225, 225, .3);
+
+            @include transition(all ease-in-out $component-transition-timer);
+        }
+    }
+}
+
+
+// Sidebar dark - white links against a dark background
+.sidebar-dark {
+    
+    .nav-item-header {
+        color: rgba(255,255,255,.5);
+    }
+
+    .nav-link {
+        color: rgba(255,255,255,.9);
+    }
+
+    // States
+    .nav-link {
+        &:hover,
+        &:focus,
+        &.focus,
+        &.active  {
+            color: $white;
+            background-color: rgba(0,0,0,.15);
+
+            @include transition(all ease-in-out $component-transition-timer);
+        }
+    }
+
+}
+
+
+// Layout adjustments
+body #app > .has-sidebar #page-content {
+	margin-left: $sidebar-width;
+}
+
+body #app > .has-sidebar.has-navbar #sidebar {
+	height: calc(100% - #{$navbar-height});
+	top: $navbar-height;
+}
+
+body #app > .has-sidebar.has-navbar.has-navbar-content #sidebar {
+    top: 0;
+    height: 100%;
+}
+
+
+
+// Tablet and lower
+@media (max-width: 991px) {
+
+    body #app > .has-sidebar #page-content,
+    body #app > .has-navbar-content #main-navbar {
+        margin-left: 0 !important;
+    }
+
+    #sidebar {
+        left: -$sidebar-width !important;
+    }
+
+    .slideout-panel .sidebar-panel.panel {
+        width: $sidebar-width !important;
+    }
+
+}

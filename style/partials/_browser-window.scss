@@ -1,0 +1,36 @@
+.browser-window {
+    -webkit-box-shadow: 0 0 0 0.5px rgba(49, 49, 93, 0.03), 0 2px 5px 0 rgba(49, 49, 93, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 0 0.5px rgba(49, 49, 93, 0.03), 0 2px 5px 0 rgba(49, 49, 93, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border-radius: 4px;
+}
+
+.browser-window .bar {
+    padding: 8px 10px;
+    height: 35px;
+}
+
+.browser-content {
+    height: calc(100% - 35px );
+    background: $white;
+}
+
+.browser-window .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 3px;
+}
+
+.browser-window .bar input[type=text] {
+    width: 100%;
+    border-radius: 3px;
+    background-color: $white;
+    margin-top: -8px;
+    height: 25px;
+    color: $gray-700;
+    border: 1px solid $gray-300;
+    padding: 5px 10px;
+}

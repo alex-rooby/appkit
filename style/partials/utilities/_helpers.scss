@@ -1,0 +1,310 @@
+// Helper
+// Custom helper classes
+
+
+.break-text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.text-crop-1 {
+    -webkit-line-clamp: 1;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.text-crop-2 {
+    -webkit-line-clamp: 2;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+a.no-underline:hover {
+    text-decoration: none !important
+}
+
+
+
+// Opacity
+$font-weight:   ();
+$font-weight: map-merge((
+    200:      200,
+    300:      300,
+    400:      400,
+    500:      500,
+    600:      600,
+    700:      700,
+    800:      800,
+), $font-weight);
+
+@each $weight, $value in $font-weight {
+    .font-weight-#{$weight} {
+        font-weight: $value !important;
+    }
+}
+
+.font-weight-semibold {
+    font-weight: $font-weight-semibold !important;
+}
+
+
+// Font Family
+.font-family-base {
+    font-family: $font-family-base;
+}
+.font-family-heading {
+    font-family: $headings-font-family;
+}
+
+
+// Font size
+.font-size-lg {
+    font-size: $font-size-lg;
+}
+.font-size-base {
+    font-size: $font-size-base;
+}
+.font-size-sm {
+    font-size: $font-size-sm;
+}
+
+
+
+// Add gray color pallet to text
+@each $color, $value in $grays {
+    .text-gray-#{$color} {
+        color: $value !important;
+    }
+}
+
+
+
+// Line height
+.line-height-base {
+    line-height: $line-height-base;
+}
+.line-height-sm {
+    line-height: $line-height-sm;
+}
+.line-height-1 {
+    line-height: 1;
+}
+
+
+// Transparent border
+.border-transparent {
+    border-color: transparent !important;
+}
+.border-top-transparent {
+    border-top-color: transparent !important;
+}
+.border-bottom-transparent {
+    border-bottom-color: transparent !important;
+}
+.border-left-transparent {
+    border-left-color: transparent !important;
+}
+.border-right-transparent {
+    border-right-color: transparent !important;
+}
+
+
+/// Animation
+.animate-pulse {
+    -webkit-animation: pulse 1.5s infinite linear;
+    animation: pulse 1.5s infinite linear;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 hsla(0, 0%, 81%, .9)
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px hsla(0, 0%, 81%, .9)
+    }
+    to {
+        -webkit-box-shadow: 0 0 0 0 hsla(0, 0%, 81%, .9)
+    }
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 hsla(0, 0%, 81%, .9)
+    }
+    70% {
+        box-shadow: 0 0 0 10px transparent
+    }
+    to {
+        box-shadow: 0 0 0 0 transparent
+    }
+}
+
+
+
+// Opacity
+$opacity:   ();
+$opacity: map-merge((
+    1:      1,
+    0:      0,
+    25:    .25,
+    50:    .5,
+    75:    .75,
+), $opacity);
+
+@each $opacity, $value in $opacity {
+    .opacity-#{$opacity} {
+        opacity: $value !important;
+    }
+}
+
+
+
+// Edges
+.top {
+    &-0 {
+        top: 0;
+    }
+    &-auto {
+        top: auto;
+    }
+}
+.bottom {
+    &-0 {
+        bottom: 0;
+    }
+    &-auto {
+        bottom: auto;
+    }
+}
+.left {
+    &-0 {
+        left: 0;
+    }
+    &-auto {
+        left: auto;
+    }
+}
+.right {
+    &-0 {
+        right: 0;
+    }
+    &-auto {
+        right: auto;
+    }
+}
+
+
+// Cursors
+.cursor-pointer {
+    cursor: pointer;
+}
+.cursor-move {
+    cursor: move;
+}
+.cursor-default {
+    cursor: default;
+}
+.cursor-disabled {
+    cursor: $cursor-disabled;
+}
+
+
+// Overflow
+.overflow-hidden {
+    overflow: hidden;
+}
+.overflow-visible {
+    overflow: visible;
+}
+.overflow-auto {
+    overflow: auto;
+}
+
+
+// Rotation
+.rotate-45 {
+    transform: rotate(45deg);
+}
+.rotate-90 {
+    transform: rotate(90deg);
+}
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+// Inversed
+.rotate-45-inverse {
+    transform: rotate(-45deg);
+}
+.rotate-90-inverse {
+    transform: rotate(-90deg);
+}
+.rotate-180-inverse {
+    transform: rotate(-180deg);
+}
+
+
+// Spinner animation
+.spin {
+    display: inline-block;
+    animation: rotation 1s linear infinite;
+}
+
+// Reversed
+.spin-reverse {
+    display: inline-block;
+    animation: rotation 1s linear infinite;
+}
+
+// Default rotation
+@-webkit-keyframes rotation {
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes rotation {
+    0% {-moz-transform: rotate(0deg);}
+    100% {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes rotation {
+    0% {-ms-transform: rotate(0deg);}
+    100% {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes rotation {
+    0% {-o-transform: rotate(0deg);}
+    100% {-o-transform: rotate(360deg);}
+}
+@keyframes rotation {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+// Inversed rotation
+@-webkit-keyframes rotation_reverse {
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(-360deg);}
+}
+@-moz-keyframes rotation_reverse {
+    0% {-moz-transform: rotate(0deg);}
+    100% {-moz-transform: rotate(-360deg);}
+}
+@-ms-keyframes rotation_reverse {
+    0% {-ms-transform: rotate(0deg);}
+    100% {-ms-transform: rotate(-360deg);}
+}
+@-o-keyframes rotation_reverse {
+    0% {-o-transform: rotate(0deg);}
+    100% {-o-transform: rotate(-360deg);}
+}
+@keyframes rotation_reverse {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(-360deg);}
+}

@@ -1,0 +1,142 @@
+@mixin placeholder {
+    position: relative;
+    overflow: hidden;
+    height: $placeholder-line-height;
+    background: $placeholder-secondary-color;
+
+    .placeholder-center & {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .placeholder-animate &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        max-width: 1000px;
+        height: 100%;
+        background: linear-gradient(to right, transparent 0%, darken($placeholder-secondary-color, 5%) 15%, transparent 30%);
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeholder-animation;
+        animation-timing-function: linear;
+    }
+}
+
+@mixin placeholder-spacing {
+    [class^="placeholder-"] + & {
+        margin-top: 2 * $placeholder-spacing;
+    }
+}
+
+.placeholder-heading {
+    @include placeholder-spacing;
+    display: flex;
+
+    &__image {
+        @include placeholder;
+        width: 2 * $placeholder-line-height + 3 * $placeholder-spacing;
+        height: 2 * $placeholder-line-height + 3 * $placeholder-spacing;
+        margin-right: 1.5 * $placeholder-spacing;
+    }
+
+    &__content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__title {
+        @include placeholder;
+        width: 85%;
+        margin-bottom: $placeholder-spacing;
+        background: $placeholder-primary-color;
+    }
+
+    &__subtitle {
+        @include placeholder;
+        width: 90%;
+    }
+}
+
+.placeholder .placeholder-list:first-child {
+    margin-top: 0; 
+}
+
+.placeholder-list {
+    margin-top: 10px;
+    display: flex;
+
+    &__image {
+        @include placeholder;
+        width: 30px;
+        height: 30px;
+        margin-right: 1.5 * $placeholder-spacing;
+        border-radius: 50%;
+    }
+
+    &__content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__title {
+        @include placeholder;
+        width: 100%;
+    }
+}
+
+.placeholder-text {
+    @include placeholder-spacing;
+
+    &__line {
+        @include placeholder;
+        width: 100%;
+        margin-bottom: $placeholder-spacing;
+
+        &:nth-child(4n + 1) {
+            width: 80%;
+        }
+
+        &:nth-child(4n + 2) {
+            width: 100%;
+        }
+
+        &:nth-child(4n + 3) {
+            width: 70%;
+        }
+
+        &:nth-child(4n + 4) {
+            width: 85%;
+        }
+    }
+}
+
+.placeholder-image {
+    @include placeholder;
+    @include placeholder-spacing;
+    border-radius: 2px;
+}
+
+.placeholder {
+
+    .image-circle {
+        border-radius: 50% !important;
+    }
+}
+
+@keyframes placeholder-animation {
+    0% {
+        transform: translate3d(-30%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(100%, 0, 0);
+    }
+}

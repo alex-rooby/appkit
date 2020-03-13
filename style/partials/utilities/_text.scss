@@ -1,0 +1,23 @@
+// White text color
+a.text-white {
+    &:not(.btn) {
+        @include transition(color ease-in-out $component-transition-timer);
+    }
+
+    // Hover state
+    @include hover-focus {
+        color: rgba($white, 0.75);
+    }
+}
+
+
+a.text-body {
+    &:not(.btn) {
+        @include transition(color ease-in-out $component-transition-timer);
+    }
+
+    // Hover state
+    @include hover-focus {
+        color: rgba($body-color, 0.6);
+    }
+}

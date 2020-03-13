@@ -1,0 +1,37 @@
+.confirm-dialog-content,
+.el-popup-parent--hidden {
+    overflow: hidden
+}
+
+.confirm-dialog-content {
+    padding: $modal-inner-padding;
+    display: inline-block;
+    width: 420px;
+    vertical-align: middle;
+    background-color: $white;
+    border-radius: $modal-content-border-radius;
+    text-align: left;
+
+    -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center
+}
+
+.confirm-dialog::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle
+}

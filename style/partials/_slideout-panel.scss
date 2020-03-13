@@ -1,0 +1,155 @@
+.slideout-panel-open {
+    overflow: hidden;
+}
+
+.slideout-panel {
+    display: block;
+    transition: opacity 0.15s;
+
+    .slideout-panel-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        transition: opacity 0.3s ease;
+        overflow-y: hidden;
+        z-index: 1040;
+    }
+
+
+    .slideout-wrapper {
+        position: static;
+
+        .panel {
+            height: 100%;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            transition: transform 0.18s ease-out;
+            overflow-y: auto;
+            transition-delay: 200ms;
+            background: #fff;
+
+            &.open-on-left {
+                right: auto;
+                left: 0;
+
+                &.panel-slide-enter {
+                    transform: translateX(-100%);
+                }
+
+                &.panel-slide-enter-to {
+                    transform: translateX(0);
+                }
+
+                &.panel-slide-leave {
+                    transform: translateX(0);
+                }
+
+                &.panel-slide-leave-to {
+                  transform: translateX(-100%);
+                }
+
+                &.panel-slide-leave-active {
+                    transition-delay: 0;
+                }
+            }
+
+            &.open-on-right {
+                right: 0;
+                left: auto;
+
+                &.panel-slide-enter {
+                    transform: translateX(100%);
+                }
+
+                &.panel-slide-enter-to {
+                    transform: translateX(0);
+                }
+
+                &.panel-slide-leave {
+                    transform: translateX(0);
+                }
+
+                &.panel-slide-leave-to {
+                    transform: translateX(100%);
+                }
+            }
+        }
+    }
+
+
+    .panel-wrap {
+        height: 100%;
+
+        .panel-header {
+            height: 40px;
+        }
+
+        .panel-body {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .panel-footer {
+            height: 40px;
+
+            .footer-lg {
+                height: 55px !important;
+            }
+        }
+
+    }
+
+
+    // layout adjustments
+
+    // header only
+    .panel-wrap.has-header {
+        .panel-body {
+            height: calc(100% - 40px);
+        }
+    }
+
+    // footer only
+    .panel-wrap.has-footer {
+        .panel-body {
+            height: calc(100% - 40px);
+        }
+    }
+
+    // large footer + header
+    .panel-wrap.has-footer-lg {
+        .panel-body {
+            height: calc(100% - 55px);
+        }
+    }
+
+    // large footer + header
+    .panel-wrap.has-footer-lg.has-header {
+        .panel-body {
+            height: calc(100% - 95px);
+        }
+    }
+
+    // header + footer
+    .panel-wrap.has-header.has-footer {
+        .panel-body {
+            height: calc(100% - 80px);
+        }
+    }
+
+}
+
+
+// Phones (landscape view as well)
+@media (max-width: 576px) {
+
+    .slideout-panel .panel {
+        width: 100% !important;
+    }
+
+}

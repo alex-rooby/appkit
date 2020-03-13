@@ -1,0 +1,92 @@
+.navbar {
+	height: $navbar-height;
+
+    .navbar-brand .logo {
+        max-height: 35px;
+    }
+
+    .nav-item .avatar {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.navbar-sm {
+    height: $navbar-height-sm;
+}
+
+
+// Navbar Icons
+.navbar-icons {
+
+    i {
+        font-size: 19px;
+        line-height: 1.5;
+    }
+
+    .nav-link {
+        padding: 0.5rem .8rem;
+    }
+
+    .badge {
+        position: absolute;
+        top: 4px;
+        margin-left: 8px;
+        z-index: 9;
+        padding-right: 0.35rem;
+        padding-left: 0.35rem;
+        padding-top: 0.25rem;
+    }
+
+}
+
+
+
+// Navbar light - dark links against a light background
+.navbar-light {
+
+    .navbar-icons {
+        .nav-link {
+            color: $navbar-light-color;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: $navbar-light-hover-color;
+        }
+    }
+
+}
+
+
+
+// Navbar dark - white links against a dark background
+.navbar-dark {
+
+    .navbar-icons {
+        .nav-link {
+            color: $navbar-dark-color;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: $navbar-dark-hover-color;
+        }
+    }
+
+}
+
+
+
+// Layout adjustments
+body #app > .has-navbar {
+    padding-top: $navbar-height;
+}
+
+body #app > .has-navbar-sm {
+    padding-top: $navbar-height-sm;
+}
+
+body #app > .has-navbar-content #main-navbar {
+    margin-left: $sidebar-width;
+}
