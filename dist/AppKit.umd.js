@@ -5207,7 +5207,7 @@ var Datatablevue_type_template_id_797367b8_staticRenderFns = []
 
         apiUrl (newVal, oldVal) {
             if ( newVal !== oldVal )
-                this.refresh();
+              this.loadData();
         },
 
         fields(newVal, oldVal) {
